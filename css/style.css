@@ -1,0 +1,34 @@
+@font-face{
+    font-family: 'keifont';
+    src: url('../font/keifont.ttf');
+}
+
+body {
+	background-image: url('../background.webp');
+	background-repeat: repeat;
+	background-size:130px 180px;
+}
+
+
+#title{
+	text-align: center;
+	font-family: keifont;
+	background:rgba(0,255,255,0.6);
+}
+
+#linktable{
+	margin-left: auto;
+	margin-right: auto;
+	border: 4px solid black;
+	border-collapse: collapse;
+}
+
+td,tr{
+	border: 2px solid black;
+	border-collapse: collapse;
+	background: rgba(255, 255, 255, 0.6);
+}
+
+#body{
+	text-align:center;
+}
