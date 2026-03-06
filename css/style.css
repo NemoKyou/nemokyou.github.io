@@ -1,43 +1,61 @@
 @font-face{
     font-family: 'keifont';
-    src: url('../font/keifont.ttf');
+    src: url('font/keifont.ttf');
 }
 
+/* 背景画像＋半透明フィルター */
 body {
-	background-image: url('../background.webp');
-	background-repeat: repeat;
-	background-size:130px 180px;
-	background: rgba(255, 255, 255, 0.6);
+    background-image: url('background.webp');
+    background-repeat: repeat;
+    background-size: 130px 180px;
+    position: relative;
+    margin: 0;
+    padding: 0;
 }
 
-
-#title{
-	text-align: center;
-	font-family: keifont;
-	background:rgba(0,255,255,0.6);
-	font-size: 28px;
-	font-weight: bold;
-	margin-bottom: 20px;
-	border-bottom: 2px solid #fff;
-	display: inline-block;
-	padding-bottom: 5px;
+/* 背景の上に薄い白フィルターを重ねる */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    z-index: -1;
 }
 
-#linktable{
-	margin-left: auto;
-	margin-right: auto;
-	border: 4px solid black;
-	border-collapse: collapse;
-	margin: 15px 0;
+/* タイトル */
+#title {
+    text-align: center;
+    font-family: keifont;
+    background: rgba(0, 255, 255, 0.6);
+    font-size: 28px;
+    font-weight: bold;
+    margin: 20px auto;
+    border-bottom: 2px solid #fff;
+    display: inline-block;
+    padding: 5px 15px;
 }
 
-td,tr{
-	border: 2px solid black;
-	border-collapse: collapse;
-	background: rgba(255, 255, 255, 0.6);
+/* テーブル全体 */
+#linktable {
+    margin-left: auto;
+    margin-right: auto;
+    border: 4px solid black;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.6);
 }
 
-#body{
-	text-align:center;
+/* セル */
+td, tr {
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 10px 15px;
+}
 
+/* アイコンの統一サイズ */
+td img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
 }
