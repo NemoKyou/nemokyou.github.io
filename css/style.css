@@ -43,6 +43,17 @@ body::before {
     max-width: calc(100% - 32px);
 }
 
+/* プロフィール */
+.profile {
+    width: min(520px, calc(100% - 32px));
+    margin: 16px auto 0;
+    padding: 10px 15px;
+    border: 2px solid black;
+    background: rgba(255, 255, 255, 0.6);
+    text-align: left;
+    line-height: 1.6;
+}
+
 /* リンク一覧 */
 .link-list {
     list-style: none;
@@ -60,6 +71,7 @@ body::before {
 
 /* リンクカード全体をタップできるようにする */
 .link-card {
+    text-decoration: none;
     display: flex;
     align-items: center;
     gap: 15px;
@@ -78,6 +90,22 @@ body::before {
 
 .link-card span {
     overflow-wrap: anywhere;
+}
+
+.link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.link-name {
+    text-decoration: underline;
+}
+
+.link-desc {
+    font-size: 13px;
+    color: #444;
 }
 
 /* アイコンの統一サイズ */
