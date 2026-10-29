@@ -1,6 +1,11 @@
 @font-face{
     font-family: 'keifont';
     src: url('../font/keifont.ttf');
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 /* 背景画像＋半透明フィルター */
@@ -11,6 +16,7 @@ body {
     position: relative;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 /* 背景の上に薄い白フィルターを重ねる */
@@ -34,29 +40,67 @@ body::before {
     border-bottom: 2px solid #fff;
     display: inline-block;
     padding: 5px 15px;
+    max-width: calc(100% - 32px);
 }
 
-/* テーブル全体 */
-#linktable {
-    margin-left: auto;
-    margin-right: auto;
+/* リンク一覧 */
+.link-list {
+    list-style: none;
+    margin: 20px auto;
+    padding: 0;
+    width: min(520px, calc(100% - 32px));
     border: 4px solid black;
-    border-collapse: collapse;
-    margin-top: 20px;
     background: rgba(255, 255, 255, 0.6);
+    text-align: left;
 }
 
-/* セル */
-td, tr {
-    border: 2px solid black;
-    border-collapse: collapse;
+.link-list li + li {
+    border-top: 2px solid black;
+}
+
+/* リンクカード全体をタップできるようにする */
+.link-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     padding: 10px 15px;
+    min-height: 70px;
+}
+
+.link-card:hover {
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.link-card:focus-visible {
+    outline: 3px solid black;
+    outline-offset: -3px;
+}
+
+.link-card span {
+    overflow-wrap: anywhere;
 }
 
 /* アイコンの統一サイズ */
-td img {
+.link-card img {
     width: 50px;
     height: 50px;
     object-fit: contain;
+    flex-shrink: 0;
 }
 
+/* スマートフォン向け */
+@media (max-width: 480px) {
+    #title {
+        font-size: 24px;
+        margin-top: 16px;
+    }
+
+    .link-list {
+        margin-top: 16px;
+    }
+
+    .link-card {
+        gap: 10px;
+        padding: 10px 12px;
+    }
+}
